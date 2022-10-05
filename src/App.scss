@@ -1,0 +1,45 @@
+.App {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.font-face-gm {
+  display: flex;
+  h1 {
+    font-size: 220pt;
+    color: black;
+    text-align: left;
+    font-family: "SuisseIntl";
+    line-height: 1.1;
+    margin: 1rem 3rem;
+  }
+  h2 {
+    font-size: 37.8125pt;
+    color: black;
+    text-align: left;
+    font-family: "SuisseIntl";
+    line-height: 1.4;
+    margin: 1rem 3.9rem;
+  }
+  h3 {
+    font-size: 24.75pt;
+    color: black;
+    text-align: left;
+    font-family: "SuisseIntl";
+    line-height: 1.2;
+    margin: 1rem 3.9rem;
+  }
+ }
