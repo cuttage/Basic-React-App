@@ -35,9 +35,10 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: opacity 0.3s ease-in-out;
 }
+
 /* Scale up the box */
 .color:hover {
-  transform: scale(1.2, 1.2);
+  transform: scale(1);
 }
 
 /* Fade in the pseudo-element with the bigger shadow */
