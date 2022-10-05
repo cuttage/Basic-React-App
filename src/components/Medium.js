@@ -3,6 +3,8 @@ import ToText from '../utils/ToText'
 import axios from 'axios'
 import './Medium.scss'
 import Skeleton from '@mui/material/Skeleton'
+import Tooltip from '@mui/material/Tooltip'
+import GoogleForm from './GoogleForm'
 
 function Medium() {
   const mediumURL =
@@ -15,6 +17,7 @@ function Medium() {
     name: 'Marta Fattori',
     profileImage: '',
     profileUrl: '',
+    profileDescription: '',
   })
   const [article, setArticle] = useState([])
 
@@ -33,7 +36,6 @@ function Medium() {
       },
       requestOptions
     ).then(({ data }) => {
-      console.log(data)
       setArticle(data)
     })
   }, [])
@@ -42,74 +44,90 @@ function Medium() {
     axios.get(mediumURL).then((info) => {
       const image = info.data.feed.image
       const link = info.data.feed.link
+      const description = info.data.feed.description
+      console.log(info)
 
-      setProfile((p) => ({ ...p, profileUrl: link, profileImage: image }))
-      console.log(profile, info.data, 'infos')
+      setProfile((p) => ({
+        ...p,
+        profileUrl: link,
+        profileImage: image,
+        profileDescription: description,
+      }))
     })
-  }, [profile])
+  }, [])
 
   useEffect(() => {
     getMediumFeed()
   }, [getMediumFeed])
 
   return (
-    <div className="flexParent">
-      <h2>Blog Posts</h2>
-      <div className="color">
-        {article.map((post, index) => (
-          <a
-            key={index}
-            href={unlistedArticleURL}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="wrapper-card"
-          >
-            {profile?.profileImage?.length > 0 ? (
-              <img
-                alt={profile.name}
-                src={profile.profileImage}
-                className="pa"
-              />
-            ) : (
-              <Skeleton
-                variant="circular"
-                width={52}
-                height={52}
-                className="pa"
-              />
-            )}
-            {post ? (
-              <div className="card">
-                <h3>{post.author}</h3>
-                <h4>{post.title}</h4>
-                <h5>{`${ToText(post.content.substring(0, 1000))}...`}</h5>
-              </div>
-            ) : (
-              <div className="card-skeleton">
-                <Skeleton
-                  variant="rectangular"
-                  width={320}
-                  height={20}
-                  className="skeleton"
-                />
-                <Skeleton
-                  variant="rectangular"
-                  width={320}
-                  height={20}
-                  className="skeleton"
-                />
-                <Skeleton
-                  variant="rectangular"
-                  width={320}
-                  height={20}
-                  className="skeleton"
-                />
-              </div>
-            )}
-          </a>
-        ))}
+    <>
+      <h2>Get started in two simple steps:</h2>
+      <div className="flexParent">
+        <h3>One: Read Medium Article</h3>
+        <div className="color">
+          {article.map((post, index) => (
+            <Tooltip title={profile.profileDescription} key={index}>
+              <a
+                href={unlistedArticleURL}
+                rel="noopener noreferrer"
+                target="_blank"
+                className="wrapper-card"
+              >
+                {profile?.profileImage?.length > 0 ? (
+                  <img
+                    alt={profile.name}
+                    src={profile.profileImage}
+                    className="pa"
+                  />
+                ) : (
+                  <Skeleton
+                    variant="circular"
+                    width={52}
+                    height={52}
+                    className="pa"
+                  />
+                )}
+                {post ? (
+                  <div className="card">
+                    <h3>{post.author}</h3>
+                    <h4>{post.title}</h4>
+                    <h5>{`${ToText(post.content.substring(0, 1000))}...`}</h5>
+                  </div>
+                ) : (
+                  <div className="card-skeleton">
+                    <Skeleton
+                      variant="rectangular"
+                      width={320}
+                      height={20}
+                      className="skeleton"
+                    />
+                    <Skeleton
+                      variant="rectangular"
+                      width={320}
+                      height={20}
+                      className="skeleton"
+                    />
+                    <Skeleton
+                      variant="rectangular"
+                      width={320}
+                      height={20}
+                      className="skeleton"
+                    />
+                  </div>
+                )}
+              </a>
+            </Tooltip>
+          ))}
+        </div>
       </div>
-    </div>
+      <div className="flexParent">
+        <h3>Two: Submit Google Form</h3>
+        <div className="color">
+          <GoogleForm></GoogleForm>
+        </div>
+      </div>
+    </>
   )
 }
 
