@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "SuisseIntl";
+  src: local("SuisseIntl"),
+   url("./fonts/SuisseIntl/SuisseIntl-Book-WebM.ttf") format("truetype");
+  font-weight: medium;
+  }
