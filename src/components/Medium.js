@@ -16,23 +16,16 @@ function Medium() {
     profileImage: '',
     profileUrl: '',
   })
-  const [blog, setBlog] = useState({
-    item: [],
-    isLoading: true,
-    error: null,
-  })
-  const test = false
   const [article, setArticle] = useState([])
 
-  const myHeaders = new Headers()
-  myHeaders.append('Content-Type', 'application/json')
-  const requestOptions = {
-    method: 'get',
-    headers: myHeaders,
-    redirect: 'follow',
-  }
-
   const getMediumFeed = useCallback(() => {
+    const myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+    const requestOptions = {
+      method: 'get',
+      headers: myHeaders,
+      redirect: 'follow',
+    }
     axios(
       {
         method: 'get',
@@ -46,18 +39,13 @@ function Medium() {
   }, [])
 
   useEffect(() => {
-    axios
-      .get(mediumURL)
-      .then((info) => {
-        const image = info.data.feed.image
-        const link = info.data.feed.link
-        const posts = info.data.items.filter((post) => post)
+    axios.get(mediumURL).then((info) => {
+      const image = info.data.feed.image
+      const link = info.data.feed.link
 
-        setProfile((p) => ({ ...p, profileUrl: link, profileImage: image }))
-        setBlog({ item: posts, isLoading: false })
-        console.log(profile, info.data, 'infos')
-      })
-      .catch((err) => setBlog({ error: err.message }))
+      setProfile((p) => ({ ...p, profileUrl: link, profileImage: image }))
+      console.log(profile, info.data, 'infos')
+    })
   }, [profile])
 
   useEffect(() => {
