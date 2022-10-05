@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-
 }
 
 .App-header {
@@ -22,7 +21,7 @@
     font-size: 220pt;
     color: black;
     text-align: left;
-    font-family: "SuisseIntl";
+    font-family: 'SuisseIntl';
     line-height: 1.1;
     margin: 1rem 3rem;
   }
@@ -30,7 +29,7 @@
     font-size: 37.8125pt;
     color: black;
     text-align: left;
-    font-family: "SuisseIntl";
+    font-family: 'SuisseIntl';
     line-height: 1.4;
     margin: 1rem 3.9rem;
   }
@@ -38,8 +37,24 @@
     font-size: 24.75pt;
     color: black;
     text-align: left;
-    font-family: "SuisseIntl";
+    font-family: 'SuisseIntl';
     line-height: 1.2;
     margin: 1rem 3.9rem;
   }
- }
+  h4 {
+    font-size: 14.75pt;
+    color: black;
+    text-align: left;
+    font-family: 'SuisseIntl';
+    line-height: 1.2;
+    margin: 1rem 3.9rem;
+  }
+  h5 {
+    font-size: 12.75pt;
+    color: black;
+    text-align: left;
+    font-family: 'SuisseIntl';
+    line-height: 1.2;
+    margin: 1rem 3.9rem;
+  }
+}

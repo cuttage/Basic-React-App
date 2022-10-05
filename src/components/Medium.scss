@@ -1,0 +1,67 @@
+.pa {
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%);
+  -webkit-tap-highlight-color: transparent;
+  image-rendering: optimizeQuality;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin: 20px;
+}
+
+/* Create a simple white box, and add the shadow for the initial state */
+.color {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Create the hidden pseudo-element */
+/* include the shadow for the end state */
+.color::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+/* Scale up the box */
+.color:hover {
+  transform: scale(1.2, 1.2);
+}
+
+/* Fade in the pseudo-element with the bigger shadow */
+.color:hover::after {
+  opacity: 1;
+}
+.flexParent {
+  display: flex;
+  max-width: 80%;
+  min-height: 400px;
+}
+.card {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  &-skeleton {
+    margin: 16px;
+    > .skeleton + .skeleton {
+      margin-top: 2%;
+    }
+  }
+}
+.wrapper-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

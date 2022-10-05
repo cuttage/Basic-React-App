@@ -1,4 +1,6 @@
-import './App.scss';
+import './App.scss'
+import Medium from './components/Medium'
+import Subscribe from './components/Subscribe'
 
 function App() {
   return (
@@ -6,10 +8,18 @@ function App() {
       <header className="App-header">
         <h1>Family</h1>
         <h2>People don't need relationships when they have Family</h2>
-        <h3>Healthy, confident sex is very important in dealing with everyday life. What if people could experience the same level of intimate communion (community) of partnerships in groups, with ever-changing novelty and bliss. That's a family. Made easier and with less at stake.</h3>
+        <h3>
+          Healthy, confident sex is very important in dealing with everyday
+          life. What if people could experience the same level of intimate
+          communion (community) of partnerships in groups, with ever-changing
+          novelty and bliss. That's a family. Made easier and with less at
+          stake.
+        </h3>
+        <Subscribe></Subscribe>
+        <Medium></Medium>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
