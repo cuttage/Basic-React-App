@@ -20,10 +20,12 @@ function Medium() {
     profileDescription: '',
   })
   const [article, setArticle] = useState([])
+  const [hiImage, setHiImage] = useState(null)
 
   const getMediumFeed = useCallback(() => {
     const myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
+    myHeaders.append('SameSite', 'Strict')
     const requestOptions = {
       method: 'get',
       headers: myHeaders,
@@ -41,11 +43,28 @@ function Medium() {
   }, [])
 
   useEffect(() => {
-    axios.get(mediumURL).then((info) => {
+    const myHeaders2 = new Headers()
+    myHeaders2.append('Content-Type', 'application/json')
+    myHeaders2.append('SameSite', 'Strict')
+    const requestOptions2 = {
+      method: 'get',
+      headers: myHeaders2,
+      redirect: 'follow',
+    }
+    axios(
+      {
+        method: 'get',
+        url: mediumURL,
+      },
+      requestOptions2
+    ).then((info) => {
       const image = info.data.feed.image
       const link = info.data.feed.link
       const description = info.data.feed.description
-      console.log(info)
+      const splitSet = info.data.feed.image.split('/150/150')
+      if (splitSet.length > 1) {
+        setHiImage(splitSet[0] + '/208/208' + splitSet[1])
+      }
 
       setProfile((p) => ({
         ...p,
@@ -67,14 +86,19 @@ function Medium() {
         <h3>One: Read Medium Article</h3>
         <div className="color">
           {article.map((post, index) => (
-            <Tooltip title={profile.profileDescription} key={index}>
+            <Tooltip
+              title={profile.profileDescription}
+              key={index + '-tooltip'}
+            >
               <a
                 href={unlistedArticleURL}
                 rel="noopener noreferrer"
                 target="_blank"
                 className="wrapper-card"
               >
-                {profile?.profileImage?.length > 0 ? (
+                {hiImage ? (
+                  <img alt={profile.name} src={hiImage} className="pa" />
+                ) : profile?.profileImage?.length > 0 ? (
                   <img
                     alt={profile.name}
                     src={profile.profileImage}

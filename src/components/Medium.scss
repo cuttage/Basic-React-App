@@ -9,7 +9,6 @@
   margin: 20px;
 }
 
-/* Create a simple white box, and add the shadow for the initial state */
 .color {
   position: relative;
   display: inline-block;
@@ -22,8 +21,6 @@
   max-width: 629px;
 }
 
-/* Create the hidden pseudo-element */
-/* include the shadow for the end state */
 .color::after {
   content: '';
   position: absolute;
@@ -37,12 +34,10 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Scale up the box */
 .color:hover {
   transform: scale(1);
 }
 
-/* Fade in the pseudo-element with the bigger shadow */
 .color:hover::after {
   opacity: 1;
 }
@@ -78,4 +73,9 @@
 h2.centerText {
   text-align: center;
   padding-bottom: 4.90125vw;
+}
+.gridParent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
 }
