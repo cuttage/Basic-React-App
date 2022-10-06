@@ -2,7 +2,7 @@ import './App.scss'
 import Medium from './components/Medium'
 import Layout from './layout'
 import LayoutUtil from './layout/LayoutUtil'
-import VerticalLinearStepper from './components/VerticalLinearStepper'
+import Stepper from './components/Stepper'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             novelty and bliss. That's a family. Made easier and with less at
             stake.
           </h3> */}
-          <VerticalLinearStepper></VerticalLinearStepper>
+          <Stepper></Stepper>
         </LayoutUtil>
         <LayoutUtil class="App-header two">
           <Medium></Medium>
