@@ -1,14 +1,26 @@
 .App {
   text-align: left;
+  min-height: 100vh;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   flex-wrap: nowrap;
 }
 
 .App-header {
-  background-color: white;
-  min-height: 100vh;
+  &.one {
+    @media only screen and (min-width: 600px) {
+      max-width: 90vw;
+    }
+    @media only screen and (min-width: 844px) {
+      max-width: 80vw;
+    }
+  }
+  &.two {
+    word-wrap: normal;
+  }
 }
 
 .App-link {
@@ -18,43 +30,50 @@
 .font-face-gm {
   display: flex;
   h1 {
-    font-size: 220pt;
+    font-size: 20.370370370370368vw;
     color: black;
     text-align: left;
     font-family: 'SuisseIntl';
     line-height: 1.1;
-    margin: 1rem 3rem;
+    margin: 1rem 3.333333333333333vw;
   }
   h2 {
-    font-size: 37.8125pt;
+    font-size: 50.416666666666664px;
+    @media only screen and (max-width: 600px) {
+      font-size: 44.114583333333331px;
+    }
     color: black;
     text-align: left;
     font-family: 'SuisseIntl';
     line-height: 1.4;
-    margin: 1rem 3.9rem;
+    margin: 1rem 4.333333333333333vw;
   }
   h3 {
-    font-size: 24.75pt;
+    font-size: 33px;
+    line-height: 1.35;
+    @media only screen and (max-width: 600px) {
+      font-size: 28.875px;
+      line-height: 1.45;
+    }
     color: black;
     text-align: left;
     font-family: 'SuisseIntl';
-    line-height: 1.2;
-    margin: 1rem 3.9rem;
+    margin: 1rem 4.333333333333333vw;
   }
   h4 {
-    font-size: 14.75pt;
+    font-size: 19.666666666666664px;
     color: black;
     text-align: left;
     font-family: 'SuisseIntl';
     line-height: 1.2;
-    margin: 1rem 3.9rem;
+    margin: 1rem 4.333333333333333vw;
   }
   h5 {
-    font-size: 12.75pt;
+    font-size: 17px;
     color: black;
     text-align: left;
     font-family: 'SuisseIntl';
     line-height: 1.2;
-    margin: 1rem 3.9rem;
+    margin: 1rem 4.333333333333333vw;
   }
 }

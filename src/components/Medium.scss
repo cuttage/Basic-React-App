@@ -19,6 +19,7 @@
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-in-out;
+  max-width: 629px;
 }
 
 /* Create the hidden pseudo-element */
@@ -47,8 +48,12 @@
 }
 .flexParent {
   display: flex;
-  max-width: 80%;
-  min-height: 400px;
+  min-height: 300px;
+  justify-content: space-evenly;
+  padding: 0 2.083333333333333vw;
+  @media only screen and (max-width: 699px) {
+    flex-direction: column;
+  }
 }
 .card {
   display: flex;
@@ -69,4 +74,8 @@
 .pnt {
   display: flex;
   align-items: flex-start;
+}
+h2.centerText {
+  text-align: center;
+  padding-bottom: 4.90125vw;
 }

@@ -62,7 +62,7 @@ function Medium() {
 
   return (
     <>
-      <h2>Get started in two simple steps:</h2>
+      <h2 className="centerText">Get started in two simple steps:</h2>
       <div className="flexParent">
         <h3>One: Read Medium Article</h3>
         <div className="color">
