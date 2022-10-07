@@ -6,29 +6,52 @@ import Skeleton from '@mui/material/Skeleton'
 import Tooltip from '@mui/material/Tooltip'
 import GoogleForm from './GoogleForm'
 
-function Medium() {
+function MediumAPI() {
   const mediumURL =
     'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@steelbreaker'
+  const mediumArticleURL =
+    'https://v1.nocodeapi.com/steelbreaker/medium/phmszrcQMonkWKyE'
   const unlistedArticleURL =
     'https://medium.com/@steelbreaker/how-to-join-family-unveiling-the-details-e8ab2cbf082e'
+  const unlistedArticleAPI =
+    'https://v1.nocodeapi.com/steelbreaker/link_preview/nlCBegdTdHwbavXB?url=https://medium.com/@steelbreaker/how-to-join-family-unveiling-the-details-e8ab2cbf082e'
   const [profile, setProfile] = useState({
     name: 'Marta Fattori',
     profileImage: '',
     profileUrl: '',
     profileDescription: '',
   })
+  const [article, setArticle] = useState([])
   const [unlistedArticle, setUnlistedArticle] = useState([])
   const [hiImage, setHiImage] = useState(null)
 
   const getMediumFeed = useCallback(() => {
-    setUnlistedArticle([
+    const myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+    myHeaders.append('SameSite', 'Strict')
+    const requestOptions = {
+      method: 'get',
+      headers: myHeaders,
+      redirect: 'follow',
+    }
+    axios(
       {
-        author: 'Marta Fattori',
-        title: 'How to join Family: Unveiling the details',
-        description:
-          'Congratulations! You made it to the first cut-off for my parties (I am A. Steelbreaker).',
+        method: 'get',
+        url: mediumArticleURL,
       },
-    ])
+      requestOptions
+    ).then(({ data }) => {
+      setArticle(data)
+    })
+    axios(
+      {
+        method: 'get',
+        url: unlistedArticleAPI,
+      },
+      requestOptions
+    ).then(({ data }) => {
+      setUnlistedArticle(data)
+    })
   }, [])
 
   useEffect(() => {
@@ -146,4 +169,4 @@ function Medium() {
   )
 }
 
-export default Medium
+export default MediumAPI
