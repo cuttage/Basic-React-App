@@ -10,7 +10,7 @@ function Medium() {
   const mediumURL =
     'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@steelbreaker'
   const unlistedArticleURL =
-    'https://medium.com/@steelbreaker/how-to-join-family-unveiling-the-details-e8ab2cbf082e'
+    'https://medium.com/@steelbreaker/how-to-join-family-unveiling-the-details-e8ab2cbf082e?source=friends_link&sk=285238d2074b2f8505c06631e39d5253'
   const [profile, setProfile] = useState({
     name: 'Marta Fattori',
     profileImage: '',
