@@ -1,8 +1,9 @@
 import './App.scss'
-import Medium from './components/Medium'
 import Layout from './layout'
 import LayoutUtil from './layout/LayoutUtil'
 import Stepper from './components/Stepper'
+import { Suspense, lazy } from 'react'
+const LazyLayout = lazy(() => import('./layout/LazyLayout'))
 
 const stepsA = [
   {
@@ -17,12 +18,6 @@ const stepsA = [
   },
 ]
 
-const stepsB = [
-  {
-    description: `NYC`,
-  },
-]
-
 function App() {
   return (
     <Layout>
@@ -32,13 +27,9 @@ function App() {
           <h2>People don't need relationships when they have Family</h2>
           <Stepper steps={stepsA}></Stepper>
         </LayoutUtil>
-        <LayoutUtil class="App-header two">
-          <Medium></Medium>
-        </LayoutUtil>
-        <LayoutUtil class="App-header one font-face-ga">
-          <h2>Where we are:</h2>
-          <Stepper steps={stepsB} size={true}></Stepper>
-        </LayoutUtil>
+        <Suspense fallback={<></>}>
+          <LazyLayout></LazyLayout>
+        </Suspense>
       </div>
     </Layout>
   )
