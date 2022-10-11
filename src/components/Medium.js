@@ -5,6 +5,10 @@ import './Medium.scss'
 import Skeleton from '@mui/material/Skeleton'
 import Tooltip from '@mui/material/Tooltip'
 import GoogleForm from './GoogleForm'
+import ImgWithFallback from './ImgWithFallback'
+import pictureAVIF from '../images/asset-xl.avif'
+import pictureWP from '../images/asset-xl.webp'
+import picturePNG from '../images/asset-xl.png'
 
 function Medium() {
   const mediumURL =
@@ -85,22 +89,13 @@ function Medium() {
                 target="_blank"
                 className="wrapper-card"
               >
-                {hiImage ? (
-                  <img alt={profile.name} src={hiImage} className="pa" />
-                ) : profile?.profileImage?.length > 0 ? (
-                  <img
-                    alt={profile.name}
-                    src={profile.profileImage}
-                    className="pa"
-                  />
-                ) : (
-                  <Skeleton
-                    variant="circular"
-                    width={52}
-                    height={52}
-                    className="pa"
-                  />
-                )}
+                <ImgWithFallback
+                  src={pictureWP}
+                  avifsrc={pictureAVIF}
+                  fallback={picturePNG}
+                  alt={profile.name}
+                  className="pa"
+                />
                 {post ? (
                   <div className="card">
                     <h3>{post.author}</h3>
