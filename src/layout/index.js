@@ -1,10 +1,10 @@
 import MySnackbar from '../components/MySnackbar'
 import './index.scss'
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
   return (
-    <div className={props.class}>
-      {props.children}
+    <div className="layout">
+      {children}
       <MySnackbar></MySnackbar>
     </div>
   )

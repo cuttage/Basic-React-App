@@ -25,7 +25,7 @@ const stepsB = [
 
 function App() {
   return (
-    <Layout class="layout">
+    <Layout>
       <div className="App font-face-gm">
         <LayoutUtil class="App-header one">
           <h1>Family</h1>
