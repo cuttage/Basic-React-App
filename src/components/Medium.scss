@@ -50,6 +50,9 @@
     flex-direction: column;
   }
 }
+.flexParent + .flexParent {
+  min-height: 0 !important;
+}
 .card {
   display: flex;
   justify-content: space-around;

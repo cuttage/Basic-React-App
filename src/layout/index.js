@@ -1,9 +1,12 @@
+import MySnackbar from '../components/MySnackbar'
+import './index.scss'
+
 const Layout = (props) => {
   return (
     <div className={props.class}>
-      <p>Layout Header</p>
+      <MySnackbar></MySnackbar>
       {props.children}
-      <p>Layout Footer</p>
+      <MySnackbar footer={true}></MySnackbar>
     </div>
   )
 }

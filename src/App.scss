@@ -7,6 +7,9 @@
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .App-header {
@@ -27,10 +30,12 @@
   color: #61dafb;
 }
 
-.font-face-gm {
+.font-face-gm,
+.font-face-ga {
   display: flex;
   h1 {
     font-size: 20.370370370370368vw;
+    // 293.33333333333px
     color: black;
     text-align: left;
     font-family: 'SuisseIntl';
@@ -76,4 +81,19 @@
     line-height: 1.2;
     margin: 1rem 4.333333333333333vw;
   }
+  .h0 {
+    // 171,874999999998332px
+    font-size: 11.935763888888773vw;
+    color: black;
+    text-align: left;
+    font-family: 'SuisseIntl';
+    line-height: 1.1;
+    margin: 1rem 3.333333333333333vw;
+    font-weight: 600;
+  }
+}
+.font-face-ga {
+  flex-direction: column;
+  min-height: 500px;
+  justify-content: center;
 }
