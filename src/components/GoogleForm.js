@@ -1,5 +1,4 @@
 import Tooltip from '@mui/material/Tooltip'
-import { memo } from 'react'
 
 const GoogleForm = () => {
   const formUrl =
@@ -18,4 +17,4 @@ const GoogleForm = () => {
   )
 }
 
-export default memo(GoogleForm)
+export default GoogleForm

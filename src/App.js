@@ -36,7 +36,7 @@ function App() {
           <Medium></Medium>
         </LayoutUtil>
         <LayoutUtil class="App-header one font-face-ga">
-          <h2>Where are we:</h2>
+          <h2>Where we are:</h2>
           <Stepper steps={stepsB} size={true}></Stepper>
         </LayoutUtil>
       </div>

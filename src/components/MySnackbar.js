@@ -30,8 +30,7 @@ const MySnackbar = ({ footer }) => {
         </div>
       ) : (
         <h3 className="snack">
-          We are in Alpha! — Join us now and save from 150 to 1500 USD over
-          three months
+          We are in Alpha! — Join us and save 150 USD over three months
         </h3>
       )}
     </div>
