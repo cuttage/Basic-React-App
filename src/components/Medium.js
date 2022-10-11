@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
 import ToText from '../utils/ToText'
-import axios from 'axios'
 import './Medium.scss'
 import Skeleton from '@mui/material/Skeleton'
 import Tooltip from '@mui/material/Tooltip'
@@ -11,18 +10,10 @@ import pictureWP from '../images/asset-xl.webp'
 import picturePNG from '../images/asset-xl.png'
 
 function Medium() {
-  const mediumURL =
-    'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@steelbreaker'
   const unlistedArticleURL =
     'https://medium.com/@steelbreaker/how-to-join-family-unveiling-the-details-e8ab2cbf082e?source=friends_link&sk=285238d2074b2f8505c06631e39d5253'
-  const [profile, setProfile] = useState({
-    name: 'Marta Fattori',
-    profileImage: '',
-    profileUrl: '',
-    profileDescription: '',
-  })
+
   const [unlistedArticle, setUnlistedArticle] = useState([])
-  const [hiImage, setHiImage] = useState(null)
 
   const getMediumFeed = useCallback(() => {
     setUnlistedArticle([
@@ -31,41 +22,9 @@ function Medium() {
         title: 'How to join Family: Unveiling the details',
         description:
           'Congratulations! You made it to the first cut-off for my parties (I am A. Steelbreaker).',
+        thumb: 'Stories by Marta Fattori on Medium',
       },
     ])
-  }, [])
-
-  useEffect(() => {
-    const myHeaders2 = new Headers()
-    myHeaders2.append('Content-Type', 'application/json')
-    myHeaders2.append('SameSite', 'Strict')
-    const requestOptions2 = {
-      method: 'get',
-      headers: myHeaders2,
-      redirect: 'follow',
-    }
-    axios(
-      {
-        method: 'get',
-        url: mediumURL,
-      },
-      requestOptions2
-    ).then((info) => {
-      const image = info.data.feed.image
-      const link = info.data.feed.link
-      const description = info.data.feed.description
-      const splitSet = info.data.feed.image.split('/150/150')
-      if (splitSet.length > 1) {
-        setHiImage(splitSet[0] + '/208/208' + splitSet[1])
-      }
-
-      setProfile((p) => ({
-        ...p,
-        profileUrl: link,
-        profileImage: image,
-        profileDescription: description,
-      }))
-    })
   }, [])
 
   useEffect(() => {
@@ -79,10 +38,7 @@ function Medium() {
         <h3>One: Read Medium Article</h3>
         <div className="color">
           {unlistedArticle.map((post, index) => (
-            <Tooltip
-              title={profile.profileDescription}
-              key={index + '-tooltip'}
-            >
+            <Tooltip title={post.thumb} key={index + '-tooltip'}>
               <a
                 href={unlistedArticleURL}
                 rel="noopener noreferrer"
@@ -93,7 +49,7 @@ function Medium() {
                   src={pictureWP}
                   avifsrc={pictureAVIF}
                   fallback={picturePNG}
-                  alt={profile.name}
+                  alt={post.author}
                   className="pa"
                 />
                 {post ? (
