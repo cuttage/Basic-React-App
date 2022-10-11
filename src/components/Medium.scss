@@ -50,9 +50,12 @@
     flex-direction: column;
   }
 }
-// .flexParent + .flexParent {
-//   min-height: 0 !important;
-// }
+.flexParent + .flexParent {
+  min-height: 210.545px !important;
+  @media only screen and (max-width: 699px) {
+    margin-top: 2rem;
+  }
+}
 .card {
   display: flex;
   justify-content: space-around;

@@ -4,9 +4,8 @@ import './index.scss'
 const Layout = (props) => {
   return (
     <div className={props.class}>
-      <MySnackbar></MySnackbar>
       {props.children}
-      <MySnackbar footer={true}></MySnackbar>
+      <MySnackbar></MySnackbar>
     </div>
   )
 }
