@@ -18,11 +18,11 @@ function Medium() {
   const getMediumFeed = useCallback(() => {
     setUnlistedArticle([
       {
-        author: 'Marta Fattori',
+        author: 'A. Steelbreaker',
         title: 'How to join Family: Unveiling the details',
         description:
           'Congratulations! You made it to the first cut-off for my parties (I am A. Steelbreaker).',
-        thumb: 'Stories by Marta Fattori on Medium',
+        thumb: 'Stories by A. Steelbreaker on Medium',
       },
     ])
   }, [])
