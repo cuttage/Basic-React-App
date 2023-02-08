@@ -2,6 +2,10 @@
 
 A fully functional one-page web app in ReactJS. Content (text) is fake and for showcasing purposes only. This example is a marketing lead generation page connectable to Google Forms. Design and fonts are curated by the author and for showcasing purpose only. This is a basic request example of a basic web app.
 
+## Available online at
+
+✅ Production: https://basic-react-app-one.vercel.app
+
 ## Available Scripts
 
 In the project directory, you can run:
