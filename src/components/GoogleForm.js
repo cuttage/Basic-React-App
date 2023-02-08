@@ -1,8 +1,7 @@
 import Tooltip from '@mui/material/Tooltip'
 
 const GoogleForm = () => {
-  const formUrl =
-    'https://docs.google.com/forms/d/e/1FAIpQLSf4CELDYZ0QVGZjmwCKWgxdo97oi4tmSkyclxPrenXPHjTMxw/viewform'
+  const formUrl = 'https://www.google.com/forms/about/'
   return (
     <Tooltip title="Google Form - Sign in required">
       <a
@@ -11,7 +10,7 @@ const GoogleForm = () => {
         target="_blank"
         className="wrapper-card"
       >
-        <h3>Get our Google Form No. 2</h3>
+        <h3>Lorem ipsum dolor sit ame</h3>
       </a>
     </Tooltip>
   )

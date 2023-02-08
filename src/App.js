@@ -6,19 +6,19 @@ import Medium from './components/Medium'
 
 const stepsA = [
   {
-    description: `Healthy, confident sex is very important in dealing with everyday life.`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id turpi`,
   },
   {
     description:
-      'What if people could experience the same level of intimate communion (community) of partnerships in groups, with ever-changing novelty and bliss.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id turpis at libero accumsan luctus. Maecenas a ultricies libero. Donec mattis con',
   },
   {
-    description: `That's a family. Made easier and with less at stake.`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing e`,
   },
 ]
 const stepsB = [
   {
-    description: `NYC`,
+    description: `Lor`,
   },
 ]
 
@@ -27,15 +27,15 @@ function App() {
     <Layout>
       <div className="App font-face-gm">
         <LayoutUtil class="App-header one">
-          <h1>Family</h1>
-          <h2>People don't need relationships when they have Family</h2>
+          <h1>Lorem.</h1>
+          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing el</h2>
           <Stepper steps={stepsA}></Stepper>
         </LayoutUtil>
         <LayoutUtil class="App-header two">
           <Medium></Medium>
         </LayoutUtil>
         <LayoutUtil class="App-header one font-face-ga">
-          <h2>Where we are:</h2>
+          <h2>Lorem ipsum d</h2>
           <Stepper steps={stepsB} size={true}></Stepper>
         </LayoutUtil>
       </div>

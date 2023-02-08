@@ -10,19 +10,18 @@ import pictureWP from '../images/asset-xl.webp'
 import picturePNG from '../images/asset-xl.png'
 
 function Medium() {
-  const unlistedArticleURL =
-    'https://medium.com/@steelbreaker/how-to-join-family-unveiling-the-details-e8ab2cbf082e?source=friends_link&sk=285238d2074b2f8505c06631e39d5253'
+  const unlistedArticleURL = 'https://medium.com/'
 
   const [unlistedArticle, setUnlistedArticle] = useState([])
 
   const getMediumFeed = useCallback(() => {
     setUnlistedArticle([
       {
-        author: 'A. Steelbreaker',
-        title: 'How to join Family: Unveiling the details',
+        author: 'Lorem ipsum dol',
+        title: 'Lorem ipsum dolor sit amet, consectetur a',
         description:
-          'Congratulations! You made it to the first cut-off for my parties (I am A. Steelbreaker).',
-        thumb: 'Stories by A. Steelbreaker on Medium',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id turpis at libero accum',
+        thumb: 'Lorem ipsum dolor sit amet, consecte',
       },
     ])
   }, [])
